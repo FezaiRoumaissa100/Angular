@@ -1,0 +1,29 @@
+<div class="container mt-3">
+  <h3>TTC Calculator</h3>
+  <div class="row g-3">
+    <div class="col-md-4">
+      <label>Prix HT</label>
+      <input type="number" class="form-control" #input (change)="setPrixHT(input.value)" >
+    </div>
+    <div class="col-md-4">
+      <label>Quantité</label>
+      <input type="number" class="form-control" #input (change)="setQuantite(input.value)" >
+    </div>
+    <div class="col-md-4">
+      <label>TVA (%)</label>
+      <input type="number" class="form-control" #input (change)="setTva(input.value)" >
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-md-4 p-2 bg-info text-white">
+      Prix unitaire TTC : {{ prixTTC()}}
+    </div>
+    <div class="col-md-4 p-2 bg-success text-white">
+      Prix total TTC : $ {{ prixTotal() }}
+    </div>
+    <div class="col-md-4 p-2 bg-warning text-dark">
+      discount  : ${{ remise()  }}
+    </div>
+  </div>
+</div>

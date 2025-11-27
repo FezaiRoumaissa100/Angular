@@ -1,0 +1,11 @@
+<ol class="list-group">
+    @for (p of personnes(); track p.id) {
+  <app-item-cv 
+      [personne]="p"
+      (personneSelected)="selectPersonne($event)">
+  </app-item-cv>
+}
+    @empty {
+  <p class="text-muted">Aucune personne trouvée…</p>
+}
+</ol>
