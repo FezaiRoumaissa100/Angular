@@ -1,0 +1,73 @@
+<div class="todo-container">
+  <div class="todo-header">
+    <h1>My Todo List</h1>
+  </div>
+
+  <div class="input-section">
+    <input
+      type="text"
+      [(ngModel)]="newTodoTitle"
+      (keypress)="handleKeypress($event)"
+      placeholder="Add a new todo..."
+      class="todo-input"
+    />
+    <button (click)="addTodo()" class="add-btn">Add</button>
+  </div>
+
+  <div class="filter-buttons">
+    <button
+      (click)="filter.set('all')"
+      [class.active]="filter() === 'all'"
+      class="filter-btn"
+    >
+      All ({{ todos().length }})
+    </button>
+    <button
+      (click)="filter.set('active')"
+      [class.active]="filter() === 'active'"
+      class="filter-btn"
+    >
+      Active ({{ activeCount }})
+    </button>
+    <button
+      (click)="filter.set('completed')"
+      [class.active]="filter() === 'completed'"
+      class="filter-btn"
+    >
+      Completed ({{ completedCount }})
+    </button>
+  </div>
+
+  @if (filteredTodos.length > 0) {
+    <div class="todo-list">
+      @for (todo of filteredTodos; track todo.id) {
+        <div class="todo-item" [class.completed]="todo.completed">
+          <input
+            type="checkbox"
+            [checked]="todo.completed"
+            (change)="toggleTodo(todo.id)"
+            class="todo-checkbox"
+          />
+          <span class="todo-title">{{ todo.title }}</span>
+          <button
+            (click)="deleteTodo(todo.id)"
+            class="delete-btn"
+            title="Delete todo"
+          >
+            ✕
+          </button>
+        </div>
+      }
+    </div>
+  } @else {
+    <div class="empty-state">No todos yet. Add one to get started!</div>
+  }
+
+  @if (completedCount > 0) {
+    <div class="footer">
+      <button (click)="clearCompleted()" class="clear-btn">
+        Clear Completed
+      </button>
+    </div>
+  }
+</div>

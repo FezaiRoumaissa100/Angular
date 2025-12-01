@@ -1,10 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { Cv } from "./cvs/cv/cv";
 import { TtcCalculatorComponent } from "./ttc-calculator/ttc-calculator";
-
+import { Header } from "./header/header/header";
+import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
-  imports: [Cv],
+  imports: [Cv, Header,RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

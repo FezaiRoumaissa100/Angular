@@ -1,0 +1,104 @@
+<div class="color-container">
+  <div class="color-header">
+    <h1>Color Palette Manager</h1>
+  </div>
+
+  <div class="input-section">
+    <input
+      type="text"
+      [(ngModel)]="newColorName"
+      placeholder="Color name (e.g., Crimson)"
+      class="color-input"
+    />
+    <input
+      type="color"
+      [(ngModel)]="newColorHex"
+      class="color-picker"
+    />
+    <button (click)="addColor()" class="add-btn">Add Color</button>
+  </div>
+
+  <div class="content-wrapper">
+    <div class="colors-grid">
+      <h2>All Colors ({{ colors().length }})</h2>
+      <div class="grid">
+        @for (color of colors(); track color.id) {
+          <div
+            class="color-card"
+            (click)="selectColor(color)"
+            [class.selected]="selectedColor()?.id === color.id"
+          >
+            <div
+              class="color-preview"
+              [style.backgroundColor]="color.hex"
+            ></div>
+            <div class="color-info">
+              <h3>{{ color.name }}</h3>
+              <p>{{ color.hex }}</p>
+            </div>
+            <div class="color-actions">
+              <button
+                (click)="toggleFavorite(color.id); $event.stopPropagation()"
+                class="favorite-btn"
+                [class.favorited]="color.favorite"
+                title="Add to favorites"
+              >
+                ♥
+              </button>
+              <button
+                (click)="deleteColor(color.id); $event.stopPropagation()"
+                class="delete-btn"
+                title="Delete color"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    @if (selectedColor()) {
+      <div class="color-details">
+        <h2>Color Details</h2>
+        <div class="detail-preview"
+          [style.backgroundColor]="selectedColor()!.hex"
+        ></div>
+        <div class="detail-info">
+          <p><strong>Name:</strong> {{ selectedColor()!.name }}</p>
+          <p>
+            <strong>HEX:</strong>
+            <span (click)="copyToClipboard(selectedColor()!.hex)" class="copyable">
+              {{ selectedColor()!.hex }}
+            </span>
+          </p>
+          <p>
+            <strong>RGB:</strong>
+            <span (click)="copyToClipboard(selectedColor()!.rgb)" class="copyable">
+              {{ selectedColor()!.rgb }}
+            </span>
+          </p>
+        </div>
+      </div>
+    }
+  </div>
+
+  @if (favoriteColors.length > 0) {
+    <div class="favorites-section">
+      <h2>Favorite Colors ({{ favoriteColors.length }})</h2>
+      <div class="favorites-grid">
+        @for (color of favoriteColors; track color.id) {
+          <div class="favorite-card">
+            <div
+              class="color-square"
+              [style.backgroundColor]="color.hex"
+              (click)="selectColor(color)"
+              title="Click to view details"
+            ></div>
+            <p>{{ color.name }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  }
+</div>
