@@ -1,0 +1,10 @@
+@if (personnesEmbauchees().length > 0) {
+<div>  
+@for (personne of personnesEmbauchees(); track personne.id) {
+  <span>
+    <img src="assets/images/{{personne.path}}" width="50" height="50" alt="{{personne.name}}" class="rounded-circle">
+    {{personne.firstname}} {{personne.name}}
+  </span>
+}
+</div>
+}
