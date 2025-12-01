@@ -2,6 +2,7 @@ import { Component, inject, input, Input } from '@angular/core';
 import { Personne } from '../../Model/Personne';
 import { AgePipe } from "../../pipes/age-pipe";
 import { embaucheService} from '../../services/embauche'; 
+import { ToasterService } from '../../services/toaster-service';
 
 @Component({
   standalone: true,
@@ -13,7 +14,7 @@ import { embaucheService} from '../../services/embauche';
 export class DetailCv {
    
    personne = input<Personne>(null!);
-   embaucheservice=inject(embaucheService);
+   embaucheservice=inject(ToasterService);
     embaucher(){
       this.embaucheservice.embaucher(this.personne());
      }

@@ -14,8 +14,6 @@ import { Embauche } from "../embauche/embauche";
 })
 export class Cv {
   
-
-
   private cvService = inject(CvService);
   personnes = this.cvService.getpersonnes();
    selectedPersonne: Personne=null!;

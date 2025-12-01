@@ -1,14 +1,14 @@
 import { Component, inject } from '@angular/core';
-import { embaucheService} from '../../services/embauche';
-
+import { ToasterService } from '../../services/toaster-service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-embauche',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './embauche.html',
   styleUrl: './embauche.css',
 })
 export class Embauche {
-  private embaucheService = inject(embaucheService);
+  private embaucheService = inject(ToasterService);
   personnesEmbauchees = this.embaucheService.getEmbauches();
 
 }
