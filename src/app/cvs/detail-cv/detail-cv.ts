@@ -17,4 +17,7 @@ export class DetailCv {
     embaucher(){
       this.embaucheservice.embaucher(this.personne());
      }
+      debaucher(){
+        this.embaucheservice.debaucher(this.personne());
+      }
 }
