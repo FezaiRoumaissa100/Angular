@@ -45,4 +45,12 @@ export class ToasterService {
       );
     }
   }
+
+  formError() {
+    this.toastr.error('Please fill in all required fields correctly.', 'Form Error',{
+            toastClass: 'ngx-toastr custom-toastr custom-toastr-error',
+            positionClass: 'toast-top-center',
+    });
+
+  }
 }

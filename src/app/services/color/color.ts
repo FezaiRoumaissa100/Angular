@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 
 interface Color {
@@ -13,7 +13,7 @@ interface Color {
 @Component({
   selector: 'app-color',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [FormsModule],
   templateUrl: './color.html',
   styleUrl: './color.css',
 })

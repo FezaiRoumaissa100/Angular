@@ -3,6 +3,7 @@ import { Cv } from "./cvs/cv/cv";
 import { TtcCalculatorComponent } from "./ttc-calculator/ttc-calculator";
 import { Header } from "./header/header/header";
 import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-root',
   imports: [Cv, Header,RouterOutlet],

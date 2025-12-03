@@ -28,3 +28,18 @@
 .navbar-brand a:hover {
   color: #4CAF50;
 }
+
+/* Layout for navbar links */
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.navbar-menu a {
+  color: #333;
+  text-decoration: none;  
+  padding: 0.15rem 0.35rem;
+}
+.navbar-menu a:hover {
+  color: #4CAF50;
+}

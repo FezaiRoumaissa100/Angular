@@ -1,0 +1,8 @@
+/* Only show red border when the control is invalid AND has been touched by the user */
+input.ng-invalid.ng-touched,
+input.form-control.ng-invalid.ng-touched,
+textarea.ng-invalid.ng-touched,
+select.ng-invalid.ng-touched {
+    border: 2px solid #dc3545;
+}
+

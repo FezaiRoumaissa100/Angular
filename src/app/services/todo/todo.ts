@@ -1,5 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
 
 interface Todo {
@@ -11,7 +11,7 @@ interface Todo {
 @Component({
   selector: 'app-todo',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [FormsModule],
   templateUrl: './todo.html',
   styleUrl: './todo.css',
 })

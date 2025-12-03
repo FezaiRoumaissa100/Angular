@@ -1,1 +1,14 @@
-/* Bootstrap is now loaded via angular.json styles array */
+.custom-toastr-error {
+	background: linear-gradient(90deg, #fff6f6 0%, #ffecec 100%) !important;
+	color: #7a1f1f !important;
+	border-left: 4px solid #dc3545 !important;
+		;
+}
+
+.toast-top-center {
+    margin-top: 20px;
+	left: 50% !important;
+	right: auto !important;
+	transform: translateX(-50%) !important;
+}
+

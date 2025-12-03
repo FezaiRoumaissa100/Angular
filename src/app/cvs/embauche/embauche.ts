@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { ToasterService } from '../../services/toaster-service';
-import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-embauche',
-  imports: [CommonModule],
+  imports: [],
   templateUrl: './embauche.html',
   styleUrl: './embauche.css',
 })
