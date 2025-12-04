@@ -1,0 +1,44 @@
+@if (personne) {
+    <div class="detail-container">
+      <div class="d-flex justify-content-center">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="tab-content p-3">
+            <div class="tab-pane active" id="profile">
+              <h4 class="my-2">CV {{ personne.firstname }} {{ personne.name }}</h4>
+
+              <div class="d-flex justify-content-center mb-3">
+                <img class="img-circle" src="assets/images/{{ personne.path }}" alt="{{ personne.name }}">
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <h4 class="mt-2"><span class="fa fa-info-circle"></span> Informations</h4>
+
+                  <table class="table table-hover table-striped">
+                    <tbody>
+                      <tr><td><strong>Name</strong></td><td>{{ personne.name }}</td></tr>
+                      <tr><td><strong>Firstname</strong></td><td>{{ personne.firstname }}</td></tr>
+                      <tr><td><strong>Job</strong></td><td>{{ personne.job }}</td></tr>
+                      <tr><td><strong>Age</strong></td><td>{{ personne.age }}</td></tr>
+                      <tr><td><strong>CIN</strong></td><td>{{ personne.cin }}</td></tr>
+                    </tbody>
+                  </table>
+
+                </div>
+              </div>
+
+              <div class="d-flex justify-content-center mt-4">
+                <button class="btn btn-danger btn-lg" (click)="delete()">
+                  Delete CV
+                </button>
+                <button class="btn btn-primary" (click)="goBack()"> Retour</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  } @else {
+    <p>CV non trouvé.</p>
+  }

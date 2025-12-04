@@ -3,6 +3,7 @@ import { Personne } from '../../Model/Personne';
 import { AgePipe } from "../../pipes/age-pipe";
 import { embaucheService } from '../../services/embauche';
 import { ToasterService } from '../../services/toaster-service';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -12,13 +13,19 @@ import { ToasterService } from '../../services/toaster-service';
   styleUrl: './detail-cv.css',
 })
 export class DetailCv {
+   
+   personne = input<Personne>(null!);
+   embaucheservice=inject(ToasterService);
+   router = inject(Router);
+    embaucher(){
+      this.embaucheservice.embaucher(this.personne());
+     }
+      debaucher(){
+        this.embaucheservice.debaucher(this.personne());
+      }
+      Infos(){
+        const link = ['cv', this.personne().id];
+        this.router.navigate(link);
 
-  personne = input<Personne>(null!);
-  embaucheservice = inject(ToasterService);
-  embaucher() {
-    this.embaucheservice.embaucher(this.personne());
-  }
-  debaucher() {
-    this.embaucheservice.debaucher(this.personne());
-  }
+      }
 }
